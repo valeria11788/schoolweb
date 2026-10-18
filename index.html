@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Личный кабинет ученика — добавление заданий по предметам и профиль">
+    <title>Личный кабинет ученика</title>
+    
+    <!-- Иконка вкладки -->
+    <link rel="icon" href="school.jpg">
+    
+    <!-- Стили строго по методичке учителя -->
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px;
+        margin: 0 auto; padding: 20px; line-height: 1.5; color: #333; }
+        h1, h2 { color: #1f4e79; }
+        nav a { margin-right: 12px; }
+        form, table { border: 1px solid #ccc; padding: 12px; margin-bottom: 16px; }
+        table, th, td { border: 1px solid #999; border-collapse: collapse; }
+        th, td { padding: 8px 12px; }
+        th { background: #e8f1fa; }
+        label { display: block; margin-top: 8px; }
+        footer { text-align: center; color: #999; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Шаг 2. Шапка -->
+    <header>
+        <h1>Личный кабинет ученика</h1>
+        <p>Успеваемость, задания по предметам и профиль — всё в одном месте.</p>
+    </header>
+
+    <!-- Шаг 2. Навигация (3 якоря + 1 внешняя ссылка) -->
+    <nav>
+        <a href="#add">Добавить задание</a>
+        <a href="#data">Мои задания</a>
+        <a href="#help">Помощь</a>
+        <a href="https://github.com/valeria11788" target="_blank">Мой GitHub</a>
+    </nav>
+
+    <main>
+
+        <!-- Шаг 4. Форма добавления записи -->
+        <section id="add">
+            <h2>Новое задание</h2>
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Данные задания</legend>
+                    
+                    <label for="title">Название</label>
+                    <input type="text" id="title" name="title"
+                           placeholder="Например: подготовить доклад по истории" required>
+
+                    <label for="desc">Описание</label>
+                    <textarea id="desc" name="desc" rows="3" cols="40"
+                              placeholder="Что нужно сделать?"></textarea>
+
+                    <label for="cat">Предмет</label>
+                    <select id="cat" name="cat">
+                        <option value="math">Математика</option>
+                        <option value="russian">Русский язык</option>
+                        <option value="history">История</option>
+                        <option value="physics">Физика</option>
+                        <option value="it">Информатика</option>
+                    </select>
+
+                    <label for="date">Срок сдачи</label>
+                    <input type="date" id="date" name="date">
+
+                    <label for="priority">Приоритет (1 — срочно, 5 — можно подождать)</label>
+                    <input type="number" id="priority" name="priority" min="1" max="5" value="3">
+
+                    <button type="submit">Добавить</button>
+                    <button type="reset">Очистить</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Шаг 5. Таблица данных -->
+        <section id="data">
+            <h2>Мои задания</h2>
+            <table>
+                <caption>Пример наполнения интерфейса</caption>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Предмет</th>
+                        <th>Срок сдачи</th>
+                        <th>Приоритет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Домашняя работа №14</td>
+                        <td>Математика</td>
+                        <td>2026-10-20</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Сочинение «Осенний лес»</td>
+                        <td>Русский язык</td>
+                        <td>2026-10-22</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Доклад «Реформы Петра I»</td>
+                        <td>История</td>
+                        <td>2026-10-15</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Всего заданий: 3 (пока это пример — реальные данные добавим позже)</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Шаги 6, 12. Продвинутые HTML5-элементы и Помощь -->
+        <section id="help">
+            <h2>Помощь</h2>
+
+            <!-- Контакты -->
+            <p><strong>Техподдержка:</strong> <a href="125@school.ru">125@school.ru</a>, тел. +7 (999) 123-45-67</p>
+
+            <!-- Шкала профиля с процентами -->
+            <label for="profile">Профиль заполнен на:</label>
+            <span><strong>70%</strong></span><br>
+            <progress id="profile" max="100" value="70">70%</progress>
+            
+            <br><br>
+
+            <!-- Шкала важности -->
+            <label for="importance">Важность (1 — низкая, 5 — высокая)</label>
+            <span><strong>4 из 5</strong></span><br>
+            <meter id="importance" min="1" max="5" value="4" optimum="5">4 из 5</meter>
+
+            <!-- Раскрывающиеся блоки -->
+            <details>
+                <summary>Как добавить задание?</summary>
+                <p>Заполните форму выше и нажмите «Добавить». Пока данные никуда не сохраняются — в следующих работах добавим JavaScript.</p>
+            </details>
+
+            <details>
+                <summary>Что дальше?</summary>
+                <p>В следующих лабораторных оживим интерфейс и научимся сохранять задания.</p>
+            </details>
+        </section>
+
+    </main>
+
+    <!-- Шаг 7. Подвал -->
+    <footer>
+        <p>© 2026, Казынченко Валерия · <a href="valeriak2008k@gmail.com">valeria2008@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
